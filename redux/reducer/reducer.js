@@ -1,4 +1,4 @@
-import { CLEAR_ERROR, DELETE_CIUDAD, GET_API_DATA, ADD_CIUDAD_FAVORITA, REMOVE_CIUDAD_FAVORITA } from "../actions/actionsTypes";
+import { CLEAR_ERROR, DELETE_CIUDAD, GET_API_DATA, ADD_CIUDAD_FAVORITA, REMOVE_CIUDAD_FAVORITA, SET_MESSAGE } from "../actions/actionsTypes";
 
 const initialState = {
     favoritos: {
@@ -8,7 +8,8 @@ const initialState = {
     ciudades: [],
     ciudadesFavoritas: [], // Agrega ciudadesFavoritas en el estado inicial
     ciudadRepetida: false, // Nuevo campo para controlar ciudades repetidas
-    error: ""
+    error: "",
+    message: ''
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -51,6 +52,11 @@ const rootReducer = (state = initialState, action) => {
                         ),
                       },
                     };
+                    case SET_MESSAGE:
+      return {
+        ...state,
+        message: action.payload
+      };
               default:
                 return state;
             }

@@ -37,7 +37,7 @@ const CiudadesFavoritasScreen = () => {
               <Text>Sensación Térmica:{item.feel}°</Text>
               <View style={estilos.boton}>
                 <TouchableOpacity onPress={() => handleRemoveCiudad(item)}>
-                  <Image source={cesto} />
+                  <Image source={cesto} styles={estilos.icono}/>
                 </TouchableOpacity>
               </View>
             </View>

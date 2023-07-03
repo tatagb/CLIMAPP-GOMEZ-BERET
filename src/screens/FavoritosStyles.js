@@ -17,6 +17,9 @@ const estilos = StyleSheet.create({
       borderRadius: 8,
       padding: 16,
       marginBottom: 16,
+      marginTop: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     title: {
       fontSize: 18,

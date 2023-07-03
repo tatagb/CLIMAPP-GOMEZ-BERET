@@ -4,25 +4,34 @@ import { deleteCiudad } from '../../redux/actions/actions';
 import { useDispatch, useSelector } from "react-redux";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { insertCiudad } from "../../src/db/";
-import { ADD_CIUDAD_FAVORITA } from '../../redux/actions/actionsTypes';
+import { addCiudadFavorita } from '../../redux/actions/actions';
+
 
 
 export const cesto = require("../../assets/cesto.png");
 const guardar = require("../../assets/guardar.png");
 
-export default function Card({navigation, ciudad}) {
-  const dispatch = useDispatch();
-const handleGuardarCiudad = ()=> {
 
-  insertCiudad(ciudad.name, ciudad.feel, ciudad.weather, ciudad.img, ciudad.temp)
-  .then(() => {
-    alert('Ciudad guardada exitosamente');
-    dispatch({type: ADD_CIUDAD_FAVORITA, payload: ciudad}); // Despachar el action para agregar la ciudad favorita
-  })
-  .catch(error => {
-    console.log('Error al guardar la ciudad:', error);
-  });
-}
+export default function Card({navigation, ciudad}) {
+
+  const dispatch = useDispatch();
+  const ciudadesFavoritas = useSelector(state => state.favoritos.ciudadesFavoritas);
+  const handleGuardarCiudad = () => {
+  const ciudadExistente = ciudadesFavoritas.find(c => c.name === ciudad.name);
+    if (ciudadExistente) {
+      alert('La ciudad ya se encuentra en favoritos');
+    } else {
+      insertCiudad(ciudad.name, ciudad.feel, ciudad.weather, ciudad.img, ciudad.temp)
+        .then(() => {
+          alert('Ciudad guardada exitosamente');
+          dispatch(addCiudadFavorita(ciudad));
+        })
+        .catch(error => {
+          console.log('Error al guardar la ciudad:', error);
+        });
+    }
+  };
+  
   function onPresshandler(){
     dispatch(deleteCiudad(ciudad))
   }

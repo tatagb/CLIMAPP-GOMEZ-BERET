@@ -1,12 +1,16 @@
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, ImageBackground } from 'react-native';
 import { estilos } from "./DetailsStyles";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NavBar from '../../components/NavBar/NavBar';
 import AppStatusBar from '../../components/StatusBar/StatusBar';
 
+
+const fondoDetails = require("../../assets/fondo.jpg");
+
 export default function Details({route, navigation}) {
   const ciudad = route.params;
   return (
+    <ImageBackground source={fondoDetails} style={estilos.fondo}>
       <SafeAreaView>
           <View style={estilos.container}>
               <View style={estilos.nav}>
@@ -43,6 +47,7 @@ export default function Details({route, navigation}) {
             </View>
             <AppStatusBar backgroundColor="#000" barStyle="light-content" />
         </SafeAreaView>
+        </ImageBackground>
 
   );
 }

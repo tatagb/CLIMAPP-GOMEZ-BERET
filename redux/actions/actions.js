@@ -1,6 +1,8 @@
-import { CLEAR_ERROR, DELETE_CIUDAD, GET_API_DATA, ADD_CIUDAD_FAVORITA, REMOVE_CIUDAD_FAVORITA,} from "./actionsTypes";
+import { CLEAR_ERROR, DELETE_CIUDAD, GET_API_DATA, ADD_CIUDAD_FAVORITA, REMOVE_CIUDAD_FAVORITA, SET_MESSAGE} from "./actionsTypes";
+import { getState } from 'redux';
 
 import axios from "axios";
+
 
 const apiKey = "4ae2636d8dfbdc3044bede63951a019b";
 
@@ -47,6 +49,10 @@ export const addCiudadFavorita = (ciudad) => dispatch => {
     export const removeCiudadFavorita = (ciudad) => ({
        type: REMOVE_CIUDAD_FAVORITA, 
        payload: ciudad});
+
+       export const setMessage = (message) => ({
+        type: SET_MESSAGE, 
+        payload: message});
 
 
 

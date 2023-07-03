@@ -1,12 +1,16 @@
 import { StyleSheet } from 'react-native';
+import { BaseAnimationBuilder } from 'react-native-reanimated';
 
 
 
 
 const estilos = StyleSheet.create({
+    fondo: {
+        flex: 1,
+        resizeMode: 'cover', // Para ajustar la imagen al tamaño del componente
+      },
 
     container: {
-        backgroundColor: '#000',
         display: 'flex',
         flexDirection: "column",
         alignItems: 'center',
@@ -15,7 +19,7 @@ const estilos = StyleSheet.create({
         marginBottom: 5,
     },
     card: {
-        backgroundColor: '#222',
+
         display: 'flex',
         flexDirection: "column",
         alignItems: 'center',
@@ -44,10 +48,10 @@ const estilos = StyleSheet.create({
     },
     titulo: {
         color: "white",
-        fontSize: 25,
+        fontSize: 45,
+        fontStyle: "bolder",
     },
     contenedorImagen:{
-        backgroundColor: "#222",
         width: 150,
         height: 150,
         borderRadius: 20,
