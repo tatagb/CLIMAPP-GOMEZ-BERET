@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 import {init} from "././src/db/index"
 import store from "./redux/store/store"
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import MainNavigator from "./navigation"
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 
 init()
@@ -28,7 +27,6 @@ export default function App() {
           <BottomTabNavigator />
         </NavigationContainer>
       </SafeAreaProvider>
-      <MainNavigator />
     </Provider>
   );
 }

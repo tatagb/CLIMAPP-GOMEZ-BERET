@@ -6,8 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { fetchCiudad, insertCiudad } from "../../src/db/";
 
+
 const cesto = require("../../assets/cesto.png");
 const guardar = require("../../assets/guardar.png");
+
 export default function Card({navigation, ciudad}) {
   const dispatch = useDispatch();
 const handleGuardarCiudad = ()=> {

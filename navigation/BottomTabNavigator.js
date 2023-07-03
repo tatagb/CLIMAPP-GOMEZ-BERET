@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../src/screens/HomeScreen';
+import StackNavigator from './StackNavigator';
 import FavoritosScreen from '../src/screens/FavoritosScreen';
 import Ionicons from "@expo/vector-icons/Ionicons";
 
@@ -12,24 +13,26 @@ const BottomTabNavigator = () => {
     <Tab.Navigator>
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={StackNavigator}
         options={{
+            headerShown: false,
             tabBarIcon: () => (
               <View>
-                <Ionicons name="Home" size={30} color="black" />
-                <Text>Home</Text>
+                <Ionicons name="home" size={30} color="black" />
               </View>
+              
             ),
+            
           }}
       />
       <Tab.Screen
         name="Favoritos"
         component={FavoritosScreen}
         options={{
+            headerTintColor: "Red",
             tabBarIcon: () => (
               <View>
-                <Ionicons name="Home" size={30} color="black" />
-                <Text>Favoritos</Text>
+                <Ionicons name="heart" size={30} color="black" />
               </View>
             ),
           }}
