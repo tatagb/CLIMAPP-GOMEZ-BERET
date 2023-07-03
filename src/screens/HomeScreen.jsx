@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { FlatList, Text, View, Alert, ImageBackground } from 'react-native';
 import { estilos } from './HomeStyles';
 import Card from '../../components/Card/Card';

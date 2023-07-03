@@ -1,9 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import { Button, View, Alert, TextInput} from 'react-native';
+import { View, TextInput} from 'react-native';
 import { estilos } from './SearchBarStyles';
 import { useDispatch, useSelector } from "react-redux";
 import {getApiData} from "../../redux/actions/actions";
-import Card from '../../components/Card/Card';
 import { useState } from 'react';
 import  MaterialCommunityIcons from "react-native-vector-icons/Ionicons";
 
@@ -25,7 +23,6 @@ export default function SearchBar() {
 
     return (
         <View style={estilos.container}>
-            {/* <Text>App Clima</Text> */}
             <TextInput 
                 style={estilos.inputBusqueda}
                 placeholder="Buscar"

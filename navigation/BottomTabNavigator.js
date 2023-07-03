@@ -1,7 +1,6 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../src/screens/HomeScreen';
 import StackNavigator from './StackNavigator';
 import FavoritosScreen from '../src/screens/FavoritosScreen';
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -12,7 +11,7 @@ const BottomTabNavigator = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Home"
+        name="Inicio"
         component={StackNavigator}
         options={{
             headerShown: false,

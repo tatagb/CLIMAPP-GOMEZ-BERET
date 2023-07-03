@@ -1,8 +1,13 @@
-import { CLEAR_ERROR, DELETE_CIUDAD, GET_API_DATA } from "../actions/actionsTypes";
+import { CLEAR_ERROR, DELETE_CIUDAD, GET_API_DATA, ADD_CIUDAD_FAVORITA, REMOVE_CIUDAD_FAVORITA } from "../actions/actionsTypes";
 
 const initialState = {
+    favoritos: {
+        ciudadesFavoritas: []
+      },
     ciudad: {},
     ciudades: [],
+    ciudadesFavoritas: [], // Agrega ciudadesFavoritas en el estado inicial
+    ciudadRepetida: false, // Nuevo campo para controlar ciudades repetidas
     error: ""
 };
 
@@ -27,8 +32,27 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 ciudades: state.ciudades.filter(c => c.id !== action.payload.id),
             }
-        default: return state;
-    }
-}
-
+            
+            case ADD_CIUDAD_FAVORITA:
+                return {
+                    ...state,
+                    favoritos: {
+                      ...state.favoritos,
+                      ciudadesFavoritas: [...state.favoritos.ciudadesFavoritas, action.payload]
+                    }
+                  };
+                  case REMOVE_CIUDAD_FAVORITA:
+                    return {
+                      ...state,
+                      favoritos: {
+                        ...state.favoritos,
+                        ciudadesFavoritas: state.favoritos.ciudadesFavoritas.filter(
+                          (ciudad) => ciudad.id !== action.payload.id
+                        ),
+                      },
+                    };
+              default:
+                return state;
+            }
+          };
 export default rootReducer;

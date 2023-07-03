@@ -1,28 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, Alert, Button } from 'react-native';
+import { Text, View, Image  } from 'react-native';
 import { estilos } from "./CardStyles";
 import { deleteCiudad } from '../../redux/actions/actions';
 import { useDispatch, useSelector } from "react-redux";
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { fetchCiudad, insertCiudad } from "../../src/db/";
+import { insertCiudad } from "../../src/db/";
+import { ADD_CIUDAD_FAVORITA } from '../../redux/actions/actionsTypes';
 
 
-const cesto = require("../../assets/cesto.png");
+export const cesto = require("../../assets/cesto.png");
 const guardar = require("../../assets/guardar.png");
 
 export default function Card({navigation, ciudad}) {
   const dispatch = useDispatch();
 const handleGuardarCiudad = ()=> {
+
   insertCiudad(ciudad.name, ciudad.feel, ciudad.weather, ciudad.img, ciudad.temp)
   .then(() => {
-    console.log('Ciudad guardada exitosamente');
+    alert('Ciudad guardada exitosamente');
+    dispatch({type: ADD_CIUDAD_FAVORITA, payload: ciudad}); // Despachar el action para agregar la ciudad favorita
   })
   .catch(error => {
     console.log('Error al guardar la ciudad:', error);
   });
-} 
+}
   function onPresshandler(){
-    // Alert.alert("hola");
     dispatch(deleteCiudad(ciudad))
   }
 

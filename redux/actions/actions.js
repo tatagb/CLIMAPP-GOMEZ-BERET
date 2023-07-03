@@ -1,4 +1,4 @@
-import { CLEAR_ERROR, DELETE_CIUDAD, GET_API_DATA } from "./actionsTypes";
+import { CLEAR_ERROR, DELETE_CIUDAD, GET_API_DATA, ADD_CIUDAD_FAVORITA, REMOVE_CIUDAD_FAVORITA,} from "./actionsTypes";
 
 import axios from "axios";
 
@@ -36,4 +36,17 @@ export const clearError = () => dispatch => {
 
 export const deleteCiudad = (ciudad) => dispatch => {
     return dispatch({type: DELETE_CIUDAD, payload: ciudad})
+    
 }
+
+export const addCiudadFavorita = (ciudad) => dispatch => {
+    return dispatch ({type: ADD_CIUDAD_FAVORITA, payload: ciudad});
+
+}
+
+    export const removeCiudadFavorita = (ciudad) => ({
+       type: REMOVE_CIUDAD_FAVORITA, 
+       payload: ciudad});
+
+
+

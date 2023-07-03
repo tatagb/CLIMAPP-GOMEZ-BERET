@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, Alert } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { estilos } from "./DetailsStyles";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import NavBar from '../../components/NavBar/NavBar';

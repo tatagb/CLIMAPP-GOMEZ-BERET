@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, View, Alert, TextInput} from 'react-native';
+import { View} from 'react-native';
 import { estilos } from './NavBarStyles';
 import  MaterialCommunityIcons from "react-native-vector-icons/Ionicons";
 
